@@ -1,39 +1,31 @@
-name: CI Pipeline  # Nome do workflow
+name: CI Pipeline
 
-# Disparadores do workflow
 on:
   push:
-    branches:  # Executa o workflow em pushes na branch principal
+    branches:
       - main
-  pull_request:  # Executa o workflow em pull requests
+  pull_request:
     branches:
       - main
 
-# Definição de jobs
 jobs:
   build:
-    runs-on: ubuntu-latest  # Máquina virtual que será usada
+    runs-on: ubuntu-latest
 
     steps:
-      # Etapa 1: Check-out do código
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      # Etapa 2: Configuração do ambiente de desenvolvimento
-      # Exemplo para Node.js; ajuste a versão conforme necessário
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '21.5.0'
 
-      # Etapa 3: Instalação de dependências
       - name: Install dependencies
         run: npm install
 
-      # Etapa 4: Execução dos testes
       - name: Run tests
         run: npm test
 
-      # Etapa 5: Lint do código
       - name: Run linter
         run: npm run lint
