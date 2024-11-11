@@ -19,10 +19,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '20'   # Altere para uma versão LTS como 16, 18 ou 20
+        node-version: '20'  # ou a versão que você está usando
 
     - name: Install dependencies
-      run: npm install
+      run: npm install  # Garantir que todas as dependências, incluindo devDependencies, sejam instaladas
 
     - name: Run tests
-      run: npm test
+      run: npm test  # Comando para rodar os testes
