@@ -44,7 +44,7 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            marcusnascimento/aula-conversao-temperatura:v1
+            marcusnascimento/aula-conversao-temperatura:${{github.run_number}}
             marcusnascimento/aula-conversao-temperatura:latest
 
       
