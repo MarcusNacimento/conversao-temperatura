@@ -4,25 +4,18 @@ name: CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
   workflow_dispatch:
   
 jobs:
-  build:
+  CI:
     # Define o sistema operacional
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      # Step 2: Instalação de dependências (substitua de acordo com as necessidades do seu projeto)
-      - name: Run a one-line script
-        run: echo hello, world!
-       
-      # Step 3: Execução dos testes (substitua pelo comando de teste necessário para o seu projeto)
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build, 
-          echo test, and deploy your project.
+      - name: Setup Do NodeJS
+        uses: actions/setup-node@v4.1.0
+        with: 
+          node-version: 21.5.0
