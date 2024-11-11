@@ -1,0 +1,28 @@
+name: CI 
+
+# Configuração de gatilhos para executar o workflow
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+  
+jobs:
+  build:
+    # Define o sistema operacional
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Step 2: Instalação de dependências (substitua de acordo com as necessidades do seu projeto)
+      - name: Run a one-line script
+        run: echo hello, world!
+       
+      # Step 3: Execução dos testes (substitua pelo comando de teste necessário para o seu projeto)
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build, 
+          echo test, and deploy your project.
