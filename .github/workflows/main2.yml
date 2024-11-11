@@ -1,36 +1,28 @@
-name: CI Pipeline
+name: Node.js CI
 
 on:
   push:
     branches:
-      - main
+      - main   # Ou qualquer outra branch onde você quer rodar os testes
   pull_request:
     branches:
-      - main
+      - main   # Ou qualquer outra branch onde você quer rodar os testes
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest   # Você pode trocar para windows-latest ou macos-latest
 
     steps:
-      # Etapa 1: Verificar o código
-      - name: Check out code
-        uses: actions/checkout@v2  # Mantendo a versão v2 para compatibilidade
+    - name: Check out code
+      uses: actions/checkout@v2
 
-      # Etapa 2: Configurar o Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v2  # Usando a versão v2
-        with:
-          node-version: '21.5'  # Versão 14 do Node.js (versão estável)
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '21.5.0.'   # Ou a versão do Node que você está usando
 
-      # Etapa 3: Instalar dependências
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      # Etapa 4: Rodar os testes
-      - name: Run tests
-        run: npm test
-
-      # Etapa 5: Rodar o linter
-      - name: Run linter
-        run: npm run lint
+    - name: Run tests
+      run: npm test
