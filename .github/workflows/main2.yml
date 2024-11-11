@@ -3,14 +3,14 @@ name: Node.js CI
 on:
   push:
     branches:
-      - main   # Ou qualquer outra branch onde você quer rodar os testes
+      - main
   pull_request:
     branches:
-      - main   # Ou qualquer outra branch onde você quer rodar os testes
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest   # Você pode trocar para windows-latest ou macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Check out code
@@ -19,10 +19,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '20'   # Ou a versão do Node que você está usando
+        node-version: '20'  # ou qualquer outra versão de Node.js que você deseja
 
     - name: Install dependencies
-      run: npm install
+      run: npm install  # Instala as dependências, incluindo o Mocha
 
     - name: Run tests
-      run: npm test
+      run: npx mocha  # Usa npx para rodar Mocha que está instalado no projeto
